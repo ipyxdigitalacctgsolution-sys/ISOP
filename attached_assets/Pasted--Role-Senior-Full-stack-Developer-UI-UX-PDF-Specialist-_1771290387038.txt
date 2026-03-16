@@ -1,0 +1,29 @@
+**Role:** Senior Full-stack Developer & UI/UX PDF Specialist.
+**Objective:** Standardize PDF headers, overhaul the Enrollment Form, and fix critical alignment/overlapping issues in the Statement of Account (SOA).
+
+### 1. UNIFORM PDF HEADER (All Modules)
+* **Standard Header Design:** Implement a consistent header for ALL PDF outputs (SOA, School Fees, Collection Summary, Enrollment, Staff Registry).
+* **Logo Placement:** Position the School Logo on the **Upper Left** side ONLY.
+* **Heading Alignment:** To the right of the logo, align the School Name (Bold), Address, SEC Reg. No./TIN, Email/Website, and Contact No.
+* **Visual Line:** Add a horizontal divider line (teal/green) below the header information to separate it from the body content.
+* **NO Photo in Heading:** Strictly ensure the enrollee/staff photo is NOT part of the header area to maintain professional branding.
+
+### 2. ENROLLMENT FORM OVERHAUL (Basic & Higher Ed)
+* **Header Integration:** Apply the new Standard Uniform Header and Logo to the Enrollment Form.
+* **Content Cleanup:** * Remove the text: "THIS FORM IS NOT FOR SALE."
+    * Remove the label: "ANNEX 2".
+* **Text Alignment:** Adjust the positioning of all data fields (e.g., LRN, Name, Address) so that the text does NOT crash into or overlap with the printed lines.
+* **Photo Placement:** For Enrollment and Staff forms, place the enrollee's photo on the **Upper Right** side of the body content, just below the horizontal divider line.
+* **Photo Styling:** The photo must have a clean, fixed-dimension border (2x2 inch equivalent) to prevent layout distortion.
+
+### 3. SOA ALIGNMENT & OVERLAP FIX
+* **Problem:** Text and currency symbols are overlapping in the Amount and Total sections.
+* **Implementation:** Use `jsPDF-AutoTable` to force a structured grid layout for "Description of Fees" and "Payment History".
+* **Currency Formatting:** * Create a dedicated right-aligned column for numeric amounts.
+    * Ensure sufficient horizontal padding between the PHP (₱) symbol and values to prevent clumping.
+* **Row Spacing:** Increase vertical padding (line-height) in "Total Applicable Fees", "Total Paid", and "Outstanding Balance" to ensure zero overlap.
+* **Styling:** Highlight the "Outstanding Balance" in bold red text at the bottom.
+
+### 4. TECHNICAL SYNC
+* **Data Fetching:** Dynamically fetch the header logo and school details from the `school_profile` database record.
+* **Global Consistency:** Apply these styling rules (font: Helvetica/Roboto, table borders, and header layout) globally across the entire system.

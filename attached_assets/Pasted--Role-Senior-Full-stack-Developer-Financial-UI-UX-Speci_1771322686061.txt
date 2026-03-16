@@ -1,0 +1,21 @@
+**Role:** Senior Full-stack Developer & Financial UI/UX Specialist.
+**Objective:** Eliminate text overlapping via dynamic positioning, implement a professional email management dialog, and standardize currency by removing all dollar signs system-wide.
+
+### 1. DYNAMIC Y-AXIS POSITIONING (THE "AUTO-ADJUST" RULE)
+* **Relative Placement:** Strictly stop using fixed Y-coordinates for the "Deductions" table, "Totals" section, and "Payment History".
+* **Calculation Logic:** Use `doc.lastAutoTable.finalY + 10` (or your PDF library's equivalent) to determine the starting point of the next section.
+* **Overflow Handling:** If the "Description of Fees" table grows, all subsequent sections (Deductions, Totals, Payment History) must automatically push downward to maintain professional spacing.
+
+### 2. SYSTEM-WIDE CURRENCY & DATA CLEANUP
+* **Remove Dollar Signs ($):** Scan the entire system (Dashboard, Database views, and PDF Exports) and remove all "$" symbols. Use "PHP" or "₱" where applicable, or keep it as clean numeric text.
+* **Symbol Strip:** Strictly ensure NO "+" or "±" symbols appear next to any numeric values in the PDF or Dashboard.
+* **Alignment:** All currency amounts must remain Right-Aligned for a professional accounting view.
+
+### 3. EMAIL & DASHBOARD MANAGEMENT
+* **Email Dialog Box:** In the "Accounts Receivable" menu, replace inline email editing with a Dialog Box (Modal). This must allow for clear typing and the ability to add multiple email addresses.
+* **SMTP Configuration:** Fix the "400 Error" by ensuring the backend correctly pulls `SMTP_HOST`, `SMTP_USER`, and `SMTP_PASS` from Replit Secrets.
+
+### 4. PDF VISUAL STANDARDS (IPYX UNIFORM)
+* **Single Page Rule:** If content length approaches the bottom margin, dynamically adjust row heights or font sizes slightly to keep the SOA on ONE (1) PAGE.
+* **Photo Specs:** Maintain the 1.5 x 1.5 inch student photo in the upper right corner of the student information section.
+* **Deductions Section:** Only render the Deductions table if data exists. Ensure it never overlaps with "Total Applicable Fees".

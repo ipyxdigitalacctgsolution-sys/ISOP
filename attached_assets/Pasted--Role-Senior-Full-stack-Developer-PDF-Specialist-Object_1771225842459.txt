@@ -1,0 +1,26 @@
+**Role:** Senior Full-stack Developer & PDF Specialist.
+**Objective:** Overhaul the School Profile logo handling and fix the SOA PDF layout for a professional output.
+
+### 1. SCHOOL PROFILE & LOGO UPLOAD
+* **UI Update:** In the "School Profile" or "Account Settings" menu, replace the existing "Logo URL" textbox with an "Attach Logo" (File Upload) component.
+* **Functionality:**
+    * Allow the user to upload an image file (PNG/JPG) directly from their device.
+    * Save the uploaded image as a base64 string or file path in the `school_profile` table in the database.
+    * Ensure the "Save Changes" button correctly updates the database and provides a success notification.
+
+### 2. SOA PDF CLEANUP & LAYOUT (Visual Fix)
+* **Problem:** The current SOA output has overlapping text, misaligned columns, and messy calculations.
+* **Instruction:** Redesign the SOA PDF generation logic using `jsPDF` and `jspdf-autotable` to be "Clean and Professional":
+    * **Header:** Use the newly uploaded logo from the device (Upper Left) and align School Info (Center).
+    * **Student Info:** Align Student Name, ID No, Level, and School Year in a clear grid format below the header.
+    * **Table Structure:** Use distinct borders and sufficient cell padding for:
+        1. Description of Fees (Entrance, Tuition, Books, etc.) vs. Amount.
+        2. Deductions Section (Discounts/Scholarships) with clear grouping.
+        3. Payment Ledger (Date, S.I. No, Description, Amount).
+    * **Spacing & Formatting:** Increase line-height and cell padding to ensure NO text overlaps.
+    * **Highlighting:** Make the "Outstanding Balance" bold and colored red.
+    * **Currency:** Format all values using the PHP (₱) symbol correctly without overlapping the numbers.
+
+### 3. ACTION & REACTIVITY
+* **Dynamic Linking:** Ensure that all generated PDF forms (Enrollment, Registry, SOA) automatically use the logo uploaded through the "Attach Logo" feature.
+* **Real-time Math:** Ensure the "Outstanding Balance" in the SOA is recalculated immediately upon saving a new payment.

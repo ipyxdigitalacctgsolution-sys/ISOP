@@ -1,0 +1,71 @@
+PART 1: THE HTML TEMPLATE
+HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DepEd Basic Education Enrollment Form</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .form-wrapper { background-color: white; width: 850px; padding: 30px; box-shadow: 0 0 10px rgba(0,0,0,0.2); border: 1px solid #ccc; }
+        .header-container { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+        .logo-box img { width: 70px; }
+        .header-text { text-align: center; flex-grow: 1; }
+        .header-text h1 { font-size: 20px; margin: 0; text-decoration: underline; }
+        .header-text p { font-size: 11px; margin: 2px 0; font-weight: bold; }
+        .annex-box { border: 1px solid black; padding: 5px; font-weight: bold; font-size: 12px; }
+        .instruction-box { font-size: 11px; border-top: 1px solid black; padding-top: 5px; margin-bottom: 10px; }
+        .section-header { background-color: #cfe2f3; color: #000; font-weight: bold; padding: 4px; margin: 10px 0; font-size: 13px; text-align: center; border: 0.5px solid #a4c2f4; }
+        .field-row { margin-bottom: 8px; display: flex; align-items: center; font-size: 12px; }
+        .line-input { border: none; border-bottom: 1px solid black; outline: none; padding: 1px 5px; font-size: 12px; background: transparent; }
+        .char-boxes { display: flex; margin-left: 5px; }
+        .char-boxes div { width: 18px; height: 22px; border: 1px solid black; margin-right: -1px; }
+        .row { display: flex; justify-content: space-between; align-items: center; width: 100%; margin-bottom: 5px; }
+        .col { display: flex; align-items: center; gap: 5px; font-size: 12px; }
+        .signature-section { display: flex; justify-content: space-between; margin-top: 30px; text-align: center; font-size: 11px; }
+        .footer-note { font-size: 10px; font-style: italic; margin-top: 15px; border-top: 1px dashed #ccc; padding-top: 5px; }
+        @media print { body { background-color: white; padding: 0; } .form-wrapper { box-shadow: none; border: none; } .no-print { display: none; } }
+    </style>
+</head>
+<body>
+<div class="form-wrapper" id="enrollment-form-print">
+    <div class="header-container">
+        <div class="logo-box">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Department_of_Education_Philippines_Logo.svg" alt="DepEd Logo">
+        </div>
+        <div class="header-text">
+            <h1>BASIC EDUCATION ENROLLMENT FORM</h1>
+            <p>THIS FORM IS NOT FOR SALE.</p>
+        </div>
+        <div class="annex-box">ANNEX 2</div>
+    </div>
+    <div class="instruction-box">
+        <div class="row">
+            <div class="col">School Year: <span class="line-input" style="min-width: 60px;">{{schoolYear}}</span></div>
+            <div class="col">Check only: {{enrollmentStatus}}</div>
+        </div>
+    </div>
+    <div class="section-header">STUDENT INFORMATION</div>
+    <div class="field-row"><label>PSA Birth Certificate No.:</label><span class="line-input" style="width: 60%;">{{psaNo}}</span></div>
+    <div class="field-row"><label>LRN:</label><div class="char-boxes">{{lrnBoxes}}</div></div>
+    <div class="field-row"><label>LAST NAME:</label><div class="char-boxes">{{lastNameBoxes}}</div></div>
+    <div class="field-row"><label>FIRST NAME:</label><div class="char-boxes">{{firstNameBoxes}}</div></div>
+    <div class="row">
+        <div class="col">DATE OF BIRTH: <span class="line-input">{{dob}}</span></div>
+        <div class="col">SEX: <span class="line-input">{{sex}}</span></div>
+        <div class="col">AGE: <span class="line-input" style="width: 30px;">{{age}}</span></div>
+    </div>
+    <div class="section-header">ADDRESS</div>
+    <div class="field-row"><span class="line-input" style="width: 100%;">{{addressFull}}</span></div>
+    <div class="section-header">PARENT'S / GUARDIAN'S INFORMATION</div>
+    <div class="field-row"><label>Father's Name:</label><span class="line-input" style="width: 78%;">{{fatherName}}</span></div>
+    <div class="field-row"><label>Mother's Name:</label><span class="line-input" style="width: 75%;">{{motherName}}</span></div>
+    <div class="footer-note">I hereby certify that the above information given are true and correct...</div>
+    <div class="signature-section">
+        <div><p>_____________________________________</p><p>Signature Over Printed Name</p></div>
+        <div><p>____________________</p><p>Date</p></div>
+    </div>
+</div>
+</body>
+</html>

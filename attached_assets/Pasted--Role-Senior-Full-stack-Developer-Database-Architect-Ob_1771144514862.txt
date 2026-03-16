@@ -1,0 +1,37 @@
+**Role:** Senior Full-stack Developer & Database Architect.
+**Objective:** Update the "Teachers Registry" to "Staff and Teachers Registry" and create a new "Advisory Mapping" menu with advanced cross-module data linking.
+
+### 1. STAFF AND TEACHERS REGISTRY (RENAME & OVERHAUL)
+* **Standardize Layout:** Apply the "Entry-First" layout (Form as default view, Registry as secondary).
+* **New Data Fields:**
+    * **I. Common Info:** Employee ID (System Tracking), Full Name, Gender, Contact Number, Email, Employment Status (Regular, Probationary, Part-time, Guest Lecturer), Date of Hire (MM/DD/YYYY), Highest Educational Attainment.
+    * **II. Basic Education Details:** Designated Grade Level (Nursery to Grade 12), Section Assigned, Advisory Status (Checkbox: Class Adviser), Subject Specialization, Room Assignment.
+    * **III. Higher Education Details:** Department/College, Academic Rank, Professional License No. (PRC), Faculty Load (Current Semester Subjects), Research Specialization.
+* **Media & Actions:**
+    * Include "Upload Photo" and "Take Image" widgets.
+    * Add a "Status" column to the registry: Active, AWOL, Retired, Resigned, On Leave, Fired.
+    * Add "Edit" and "Delete" icons in the Action column.
+* **Reporting:**
+    * **Print Individual Form:** Generate a PDF with the student's photo inside the form.
+    * **Print Summary:** Button to print the list of all registered staff/teachers.
+    * **Header Branding (Standard):** School Logo (Top Left). Center: School Name, Address, SEC/TIN, Email/Website, Contact No.
+
+### 2. ADVISORY MAPPING MENU (NEW MODULE)
+* **Default View:** Display a table for "Basic Education" with the following column logic:
+    * **Levels, Sub-Level, & Section:** Automatically fetch and display data from the "Educational Levels" menu.
+* **Adviser Assignment:** * Provide a dropdown list for the "Adviser" column.
+    * **Filtering Logic:** The dropdown must only show names from the "Staff and Teachers Registry" whose "Designated Grade Level" matches the current row's Grade Level.
+* **Class Creation Logic:**
+    * **Create Class Button/Dialog:** Display a list of students based on the row's Grade Level.
+    * **Selection Interaction:** When a student's name is clicked, they are assigned to that Section. Assigned students are then excluded from the selection list of other sections for that level.
+    * **Editing:** Allow re-selecting or removing students from the section list.
+* **View & PDF Generation (Advisory Class List):**
+    * **PDF Content:** Use the Standardized School Header. Include School Year, Adviser Name, Grade Level, Section, Total Counts, Male Counts, and Female Counts.
+    * **Table Headers:** Row Number, Name of Student, Birthdate, Age, Sex.
+    * **Formatting:** Separate Male and Female lists. Sort Names A-Z.
+    * **Action:** Provide a "Print Advisory Class List" button.
+
+### 3. TECHNICAL SPECIFICATIONS
+* **Database Schema:** Update `shared/schema.ts` to create the `staff_teachers` table and the `advisory_mapping` table with foreign keys to `enrollees` and `educational_levels`.
+* **Currency & Style:** Ensure no Dollar ($) signs appear; use PHP (₱). Maintain the Gunmetal/Slate (#2c3e50) theme.
+* **Reactivity:** Assignments in Advisory Mapping must reflect instantly in the student's record and teacher's profile.

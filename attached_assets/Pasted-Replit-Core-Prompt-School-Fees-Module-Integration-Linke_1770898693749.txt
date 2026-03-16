@@ -1,0 +1,54 @@
+Replit Core Prompt: School Fees Module Integration (Linked to Educational Levels)
+Context: Update the "School Fees" menu under the "Academic Management" module. This module is for managing fee structures for every level registered in the "Educational Levels" menu.
+
+1. Design & Consistency (Uniform Style):
+
+Strictly follow the established Gunmetal/Slate (#2c3e50) theme with white text and high-contrast accent buttons.
+
+Ensure the layout matches the "Educational Levels" module for a seamless user experience.
+
+2. Core Features & Navigation:
+
+School Year Filter: Add a dropdown selector for School Year (Range: 2020-2021 to 2049-2050).
+
+Auto-Populated List: The page should automatically display the rows of Registered Educational Levels (Level, Sub-Level, and Category) fetched from the "Educational Levels" module for the selected School Year.
+
+3. School Fees Entry Logic (Interactive Dialog):
+
+Column Header "School Fees": This column should contain a clickable textbox or button for each row.
+
+Dialog Box Trigger: When clicked, open a modal/dialog box with the following fields:
+
+Entrance Fee (Numeric Input)
+
+Tuition Fee (Numeric Input)
+
+Miscellaneous Fees Section: A dynamic list where users can add multiple items (Item Name and Amount).
+
+Calculations: - Auto-sum all miscellaneous items to show a "Total Miscellaneous Fees" label.
+
+A prominent "Total School Fees" field that automatically sums the Entrance Fee + Tuition Fee + Total Miscellaneous Fees.
+
+Data Display: After saving, only the row data (the Grand Total) should be displayed on the main page view.
+
+4. Professional PDF Export (Branded Reporting):
+
+Add a "Print School Fees" button.
+
+PDF Heading Requirements: Fetch and display the following from the School Information database:
+
+“Name of School”
+
+“Address”
+
+“SEC Reg. No.” / “TIN”
+
+Include the School Year and a clean table of the fees per level.
+
+Format: Professional, neat, and aligned with the school's branding.
+
+5. Technical Instructions:
+
+Database Relation: Create a school_fees table that uses a foreign key to link with the educational_levels table.
+
+State Management: Ensure that changing the School Year dropdown updates the fee information displayed without needing a full page refresh.

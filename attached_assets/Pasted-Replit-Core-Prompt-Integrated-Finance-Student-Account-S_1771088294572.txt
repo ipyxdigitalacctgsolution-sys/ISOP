@@ -1,0 +1,49 @@
+Replit Core Prompt: Integrated Finance & Student Account System
+Role: Expert Full-stack Developer.
+Objective: Restructure the Collection Menu and update the Enrollees Financial Dialog to handle real-time payment tracking and balance calculations.
+
+1. Collection Menu Restructuring (Split-Section View):
+
+Default View: Show the Collection Entry Form immediately upon page load.
+
+Navigation: Add a button to toggle to the "Collection History" section.
+
+Collection Form Logic:
+
+Auto-Fetch Data: Once a student's Name is selected via auto-complete, automatically fetch and display their:
+
+Current Educational Level.
+
+ID No.
+
+Outstanding Account Balance (Calculated as: Total Applicable SY Fees minus Total Payments Made).
+
+Collection History Improvements:
+
+Sorting: Default sequence must be Date Descending and S.I. No. Descending.
+
+Editing: Add an Edit Icon (Pencil) to each row to allow modifications.
+
+Formatting: Remove all Dollar ($) signs. Use PHP / ₱ and accounting format (commas, 2 decimal places) for the Grand Total and all amounts.
+
+2. Enrollees Menu: Enhanced Financial Account Dialog:
+
+Payment Ledger: Inside the "Financial Account" dialog for each student, add a table at the bottom titled "Payment History".
+
+Columns: Date, S.I. No., Description, and Amount. This must fetch data directly from the collections table for that specific student.
+
+Balance Calculation Logic:
+
+Show "Total Amount Paid" (Sum of all entries in the ledger).
+
+Calculate and display the "Outstanding Account Balance" (Total Applicable SY Fees minus Total Amount Paid).
+
+Visuals: Ensure the design matches the established Gunmetal/Slate theme.
+
+3. Technical Implementation:
+
+Database: Ensure a robust relationship between enrollees.id and collections.studentId.
+
+Reactivity: When a payment is saved in the Collection Form, it should immediately reflect in the student's Outstanding Balance and Payment History without a page reload.
+
+PDF Exports: Ensure both the Collection Summary and the Student's Financial Statement are printable in a professional format with the school header.

@@ -1,0 +1,26 @@
+**Role:** Senior Full-stack Developer & PDF Specialist.
+**Objective:** Fix the School Profile update error, overhaul PDF headers with the logo, and update the Admin User Details table.
+
+### 1. FIX SCHOOL PROFILE UPDATE FAILURE
+* **Identify the Error:** Resolve the "Update Failed: Failed to update profile" error when saving the School Logo.
+* **Frontend Fix:**
+    * Ensure the "Attach Logo" component converts the image to a Base64 string before submission.
+    * Verify that all fields (SEC Reg No, TIN, Fiscal Period) are included in the payload to prevent validation errors.
+* **Backend Fix:**
+    * Increase the server payload limit in `server/index.ts` (e.g., `app.use(express.json({ limit: '5mb' }))`) to handle large image data strings.
+    * Ensure `shared/schema.ts` uses `text` or `longtext` for the logo column.
+
+### 2. ADMIN SYSTEM: USER DETAILS UPDATE
+* **Navigation:** Under the **Administration > Users Details** menu.
+* **New Column:** Add a column for **"User Passwords"** to the table.
+* **Requirement:** Ensure that the Admin account (`IPYXadmin`) can view the usernames and passwords of all registered school accounts for support purposes.
+
+### 3. PDF HEADER & LOGO INTEGRATION (FOR ALL FORMS)
+* **Standardized Header:** Apply a uniform header to ALL generated PDFs (SOA, Enrollment Form, Staff Registry, Advisory Class List).
+* **Logo Placement:** The School Logo must be placed on the **Upper Left Side**, directly beside the Heading information.
+* **Heading Details:** Beside the logo, display: Name of School, School Address, SEC Reg. No./TIN, Email Address/Website, and Contact No.
+* **SOA Specifics:** Fix the overlapping text in the SOA PDF by using `jsPDF-AutoTable` to ensure a clean grid for Fees, Deductions, and Payments.
+
+### 4. TECHNICAL SYNC
+* **Dynamic Fetching:** Ensure the PDF generator fetches the latest uploaded logo from the database School Profile.
+* **Reactivity:** After a successful profile update, any newly generated PDF must reflect the updated logo and information immediately.

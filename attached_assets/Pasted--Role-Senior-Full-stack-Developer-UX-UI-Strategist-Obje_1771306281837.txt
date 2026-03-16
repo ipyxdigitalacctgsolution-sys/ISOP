@@ -1,0 +1,28 @@
+**Role:** Senior Full-stack Developer & UX/UI Strategist.
+**Objective:** Transform the public website and user dashboard into a high-converting, functional platform featuring the "IPYX Digital Accounting Solution" branding.
+
+### 1. BRANDING & HERO SECTION (Public Website)
+* **Primary Branding:** Use the uploaded IPYX logo as the main brand identity in the website navigation bar and footer.
+* **Hero CTA:** Add a high-visibility button: "Start Your 30-Day Free Trial" that links directly to the sign-up page.
+* **Credit Attribution:** Add a professional signature in the footer: "Powered by IPYX Digital Accounting Solution."
+* **"How It Works" Visuals:** Create a simple 1-2-3 step guide for new schools:
+    1. Quick Registration (No credit card required).
+    2. Digital Setup (Upload Logo, Set Fiscal Period).
+    3. Automated Billing (Generate professional SOAs in one click).
+
+### 2. SMART DASHBOARD CARDS (Functional Features)
+* **Interactive Metric Cards:** Convert static dashboard summaries into clickable "Quick Links":
+    * **Student Count Card:** Click to navigate to "Student Directory."
+    * **Receivables Card:** Click to open "Accounts Receivables" with real-time outstanding balances.
+    * **Staff Registry Card:** Click to view the Staff/Teacher Information list.
+* **Subscription Widget:** Display a clear status bar showing days remaining in the "Free Trial" or "Regular Plan" with an "Upgrade Now" shortcut.
+* **Quick-Action Panel:** Add a "Fast Task" card for common actions: "Generate New SOA" and "Register New Student."
+
+### 3. GLOBAL PDF & UI STANDARDIZATION
+* **Uniform Headers:** Apply the standardized header (IPYX Logo on Left, School Info in Center) to ALL system outputs: SOA, School Fees, and Enrollment Forms.
+* **Clean Enrollment Layout:** Ensure the Enrollment Form is cleaned up (Remove "Annex 2" and "Not for Sale") and text alignment does not crash into printed lines.
+* **Photo Handling:** For Staff and Enrollment forms, place the user photo in the Upper Right body area with a clean 2x2 border.
+
+### 4. TECHNICAL REFINEMENTS
+* **Responsive Design:** Optimize all cards and the landing page for both Desktop and Mobile views.
+* **Auto-Update Logic:** Ensure dashboard counts (Totals) refresh automatically whenever a new record is added or updated.

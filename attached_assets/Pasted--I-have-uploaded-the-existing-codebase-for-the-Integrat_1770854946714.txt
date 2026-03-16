@@ -1,0 +1,40 @@
+
+"I have uploaded the existing codebase for the 'Integrated School Operations Portal (ISOP)'. Do not overwrite the existing folder structure. First, analyze the files in shared/schema.ts, server/routes.ts, and the frontend components to understand the current logic and the Gunmetal/Slate theme.
+Once you understand the architecture, proceed with the following update for the 'Educational Levels' module:"
+
+Context: Update the "Educational Levels" menu under the "Academic Management" module. This module registers school offerings per school year and generates professional reports.
+1. Data Architecture & Hierarchical UI:
+Implement a robust "Parent-Child-Grandchild" cascading dropdown system for 8 levels:
+Pre-School: Nursery, Kinder 1, Kinder 2.
+Primary: Grade 1 to 6.
+Junior High: Grade 7 to 10.
+Senior High: Grade 11 & 12.
+TVET: Filter by TESDA Sector $\rightarrow$ Qualification $\rightarrow$ NC Level (NC I to IV).
+Tertiary: Associate vs. Bachelor’s $\rightarrow$ Field of Study $\rightarrow$ Specific Course.
+Professional Degree: Licensed (PRC) vs. Advanced Post-Grad (Law/Med) $\rightarrow$ Specific Degree.
+Graduate Education: Certs (CPE/TCP), Master’s, or Doctorate $\rightarrow$ Specific Program.
+Note: Every dropdown level must have an "Others (Specify)" option that triggers a text input.
+2. Core Logic & Persistence:
+School Year Filter: Dropdown for SY 2020-2021 up to 2049-2050. Selecting a year must refresh all data on the page.
+Registration & Sections: Users "activate" levels for the SY. For each active level, provide an "Add Section" button (with icon) to save multiple section names.
+Student Integration: Display a "Students Enrolled" column.
+Deletion Constraint: CRITICAL: If "Students Enrolled" $\ge 1$, the "Delete" button for that level must be disabled and grayed out.
+3. Visual Dashboard:
+Theme: Consistent Gunmetal/Slate background, white text, and modern accent buttons.
+Analytics: Display a prominent "Overall Total Enrolled" card at the top, followed by smaller Count Cards for each active category.
+4. Professional PDF Export (New Feature):
+Add a "Print Report" button that generates a neat, professional PDF containing:
+Header (Fetched from School Profile):
+School Logo (aligned to the left or right of the text).
+School Name (Bold, Header size).
+Full Address.
+SEC Reg No. / TIN.
+Email Address / Website.
+Report Content:
+Display the selected School Year prominently.
+A clean table showing the Registered Educational Levels, their corresponding Sections, and Enrollment Counts.
+Styling: Use a clean layout (e.g., using jspdf and jspdf-autotable) with professional borders and padding.
+5. Technical Requirements:
+Ensure the School Information is globally accessible (via Context API or Database) for the PDF Header.
+Manage state so that adding/deleting sections or levels updates the UI and the PDF data immediately.
+

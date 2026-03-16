@@ -1,0 +1,38 @@
+**Role:** Senior Full-stack Developer & System Architect.
+**Objective:** Implement an Admin Management System, Upgrade the Subscription (Pro Plan) logic, add Forgot Password functionality, and fix the "Update Failed" error in the School Profile.
+
+### 1. ADMIN SYSTEM & USER MANAGEMENT
+* **Main Admin Account:** Create a seed/default account with username `IPYXadmin` and password `JesusismyGod`.
+* **"Users Details" Menu (Admin Only):**
+    * Display a table of all registered users/schools.
+    * Columns: School Name, Username, Password (visible to admin), School Profile Info, and Subscription Status.
+    * Data must auto-update when users change their profiles.
+* **Plan & Expiration Logic:**
+    * **Plans:** "Free Trial", "Regular Subscription", "Online Enrollment", and "Full Accounting".
+    * **Automatic Expiry:** If a plan is marked as paid, auto-calculate the expiry date based on the duration.
+    * **Manual Override:** Admin can edit the Expiration Date using a **Date Picker**. Add a "Remarks" field for any manual date changes.
+* **"Subscription Income" Menu (Admin Only):** * Show a summary of Monthly Cash Receipts, School Names, and Monthly Totals.
+
+### 2. SUBSCRIPTION SYSTEM (PRO PLAN) UPDATES
+* **Plan Details & Payments:**
+    * **Free Trial:** 30 days.
+    * **Regular Subscription:** ₱3,500.00/mo. Add a "Pay Annually" option with a 10% discount. 
+        * Link: https://paymongo.page/l/integratedschooloperationportal-subscription-payment
+    * **Online Enrollment (Add-on):** ₱3,500.00 (Pay-as-you-go, 30 days). Add this menu under "Academic Management" only when active.
+        * Link: https://paymongo.page/l/integratedschooloperationportal-adds-on-online-enrollment
+    * **Full Accounting:** ₱6,000.00 (Includes Regular Sub + Disbursement, GL, Financial Reports). 10% discount for annual payment.
+        * Link: https://paymongo.page/l/integratedschooloperationportal-full-accounting-plan
+* **UI Update:** Display these options in the "Upgrade Now" or "Pro Plan" section with clear pricing and payment links.
+
+### 3. FORGOT PASSWORD & PROFILE FIX
+* **Forgot Password:** Implement a "Forgot Password" logic in the Sign In form.
+* **Fix "Update Failed" Error:**
+    * Trace the "Failed to update profile" toast error on the School Information page.
+    * **Frontend:** Ensure all fields (Contact No, Website, SEC Reg No, TIN, Fiscal Period) are correctly captured in the API request.
+    * **Backend:** Update `storage.ts` or relevant API routes to map these fields to the database schema.
+    * **Validation:** Check if the Fiscal Period (MM/DD) format or Logo upload is causing a 400 Bad Request. Ensure the database table has all necessary columns.
+
+### 4. TECHNICAL STANDARDS
+* **Currency:** Use PHP (₱) for all amounts. Remove any Dollar ($) signs.
+* **Theme:** Maintain the Gunmetal/Slate (#2c3e50) professional styling.
+* **Security:** Ensure Admin-only menus are strictly restricted to the `IPYXadmin` account.

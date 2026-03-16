@@ -1,0 +1,44 @@
+**Role:** Senior Full-stack Developer & UX Architect.
+**Objective:** Comprehensive system overhaul for "School Fees", "Student Directory", and "Financial Accounts" with multi-level support (Basic vs. Higher Education).
+
+### 1. SCHOOL FEES MENU UPDATE
+* **Conditional Entry Form:** If "TVET", "Tertiary", "Professional Degree", or "Graduate Education" is selected:
+    * Show **Year Level Dropdown** (1st Year to 4th Year, Others: specify).
+    * Show **Semester/Term Selection** (1st Semester, 2nd Semester, Summer Class, Others: specify).
+* **Table Update:** Add "Year Level" and "Semestral Period" columns to the "Fee Structure by Level" table.
+
+### 2. STUDENT DIRECTORY (Formerly Enrollees)
+* **Rename:** Change "Enrollees" menu to **"Student Directory"**.
+* **Split View Layout:** Create two distinct tables/sections:
+    * **Basic Education Section:** (Nursery to Grade 12).
+    * **Higher Education Section:** (TVET, Tertiary, Professional, Graduate).
+* **Data Classification & Stats:**
+    * Group rows by **Level Label** (e.g., "Level: Grade 10").
+    * Beside each Level Label, display: **[Student Count] | Male: [M Count] | Female: [F Count]**.
+* **Sorting:** Basic Ed (Level Nursery to G12, then Name A-Z). Higher Ed (Level, then Name A-Z).
+* **Columns:** Name, ID No., Date Enrolled, Status, Sex, Age, Actions.
+
+### 3. ENROLLMENT FORMS & DOCUMENTATION
+* **Higher Education Enrollment Form:** Implement a 5-part form section:
+    * **I. Classification:** Enrollment Type, Level, Course/Program, Major, Year Level, Semester.
+    * **II. Personal Info:** Full Name, DOB, Gender, Civil Status, Nationality, Address.
+    * **III. Contact:** Email (required), Mobile No, Emergency Contact & Number.
+    * **IV. Academic Background:** Last School, LRN, and Document Checklist (Form 138, TOR, etc.).
+    * **V. Load/Units:** Subject Codes list and Total Units Enrolled.
+* **Photo Integration:** Include "Upload" and "Take Image" options for Higher Ed enrollees.
+* **PDF Attachments:** Add a "Attach documents in PDF format" field to both Basic and Higher Ed forms.
+
+### 4. UNIFORM PDF BRANDING & SOA
+* **Standardized Header (All PDF Forms):**
+    * **Upper Left:** School Logo.
+    * **Center Heading:** Name of School, School Address, SEC Reg. No./TIN, Email/Website, Contact No.
+* **Enrollment PDF:** Student photo MUST be in the **Upper Right**.
+* **Financial Account Dialog:**
+    * **Add Payment:** Add an "Add Payment" button directly in the Payment History section.
+    * **SOA Button:** Generate a "Statement of Account" (SOA) using the standardized school header.
+    * **SOA Content:** Current School Year, School Fees, Other Fees, Back Accounts, Discounts, Scholarships, and a Payment Ledger (Date, S.I. No., Description, Amount).
+
+### 5. TECHNICAL INSTRUCTIONS
+* **Database Schema:** Update `shared/schema.ts` to support Year Levels, Semesters, Course Programs, and PDF attachments.
+* **UI Layout:** Ensure all menus follow the "Entry-First" layout as default.
+* **Formatting:** Strictly remove ALL Dollar ($) signs. Use **PHP / ₱** with comma separators and 2 decimal places.

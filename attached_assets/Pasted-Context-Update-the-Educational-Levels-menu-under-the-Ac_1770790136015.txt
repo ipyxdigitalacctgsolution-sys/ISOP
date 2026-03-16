@@ -1,0 +1,26 @@
+Context: Update the "Educational Levels" menu under the "Academic Management" module of the ISOP project. This module is responsible for registering the school's available offerings per school year.
+1. Data Architecture (Hierarchical JSON):
+Implement a robust "Parent-Child-Grandchild" data structure for the following 8 levels:
+Pre-School: (Nursery, Kinder 1, Kinder 2).
+Primary: (Grade 1 - Grade 6).
+Junior High: (Grade 7 - Grade 10).
+Senior High: (Grade 11, Grade 12).
+Technical-Vocational (TVET): Categorized by TESDA Sectors (Agri, ICT, Tourism, etc.) with NC I to NC IV levels.
+Tertiary: Categorized into Associate Degrees vs. Bachelor's Degrees (grouped by Fields of Study).
+Professional Degree: Grouped into Licensed Professionals (PRC-regulated) and Advanced Post-Grad (Law, Medicine).
+Graduate Education: Categorized into Professional Certificates (CPE/TCP), Master’s Degrees, and Doctorate Degrees.
+Note: Every dropdown must include an "Others (Specify)" option that triggers a text input.
+2. Core Features & Logic:
+School Year Filter: Add a dropdown selector for School Year (Range: 2020-2021 to 2049-2050).
+Registry Form: - Users select levels to "activate" for the chosen School Year.
+Selected levels must remain displayed in a "Registered Levels List" or "Educational Levels Form."
+Section Management: For every activated level/course, provide an "Add Section" button with an "Add Icon." Users can input and save multiple section names per grade level/course.
+Data Persistence & Deletion Rule: - Display a column for "Number of Students Enrolled" (fetched from the Enrollees Module).
+Crucial Logic: Disable the "Delete" button for any level/course if the student count is $\ge 1$.
+3. Visual Dashboard (Analytics Cards):
+Create Count Cards for every active Educational Level and Sub-category.
+Display a prominent "Overall Total Students Enrolled" card at the top.
+Maintain the Gunmetal/Slate theme with white text and complement buttons.
+4. Technical Requirement:
+Use a cascading dropdown logic where the selection of a "Sector" or "Field" dynamically filters the "Qualification" or "Degree" list.
+Ensure the state is managed properly so that selecting a School Year updates the entire dashboard view.

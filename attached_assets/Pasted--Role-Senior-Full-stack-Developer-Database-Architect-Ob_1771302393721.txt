@@ -1,0 +1,32 @@
+**Role:** Senior Full-stack Developer & Database Architect.
+**Objective:** Update Subscription Plans, implement Dynamic Staff Dropdowns, fix image upload bugs, overhaul the Accounts Receivables menu, and implement Fiscal Year automation.
+
+### 1. SUBSCRIPTION PLANS UPDATES
+* **Under Development Notes:** In the "Subscription Plans" or "Upgrade" section, add a clear "Under Development" label or note to the "Online Enrollment" and "Full Accounting" plans.
+* **Full Accounting Adjustment:** Remove the "Online Enrollment included" feature from the "Full Accounting" plan description.
+
+### 2. STAFF & TEACHERS LOGIC & BUG FIX
+* **Dynamic Dropdowns (Basic Ed Tab):**
+    * **Designated Grade Level:** Populate this dropdown dynamically using data from the "Educational Levels" menu (filter for Pre-school to Grade 12 only).
+    * **Section Assigned:** Populate this dropdown based on the selected "Designated Grade Level." It must look up and display only the sections registered under that specific level in the "Educational Levels" menu.
+* **Image Upload Fix:** Resolve the "failed to upload" error in the Staff and Teachers menu. Ensure the server payload limit is increased and the `staff_teachers` table has a `text` or `longtext` column for the image data.
+
+### 3. ACCOUNTS RECEIVABLES MENU OVERHAUL
+* **Table Columns:** Name of Students, Levels, Category, Year Level, Section, Outstanding Account Balance, and Email Address.
+* **Email Functionality:** The "Email Address" column must be an input field. Once an email is entered, automatically update the student's profile in the database.
+* **Sorting & Filtering:**
+    * **Default Sequence:** i) Levels, ii) Category, iii) Year Level, iv) Section, v) Name of Students (A-Z).
+    * **Filtering:** Add a Multi-selection Dropdown for Registered Educational Levels to filter the table data.
+    * **Search:** Add an Autocomplete Search box for student names.
+* **Totals & Preview:** Display the "Grand Total" of the filtered account balances. Add a "Preview SOA" icon/button per row to trigger the standardized SOA dialog box.
+
+### 4. AUTOMATIC FISCAL YEAR TRANSITION
+* **Logic:** Use the "Fiscal Period" (MM/DD) from the School Profile.
+* **Trigger:** Once the current system date passes the Fiscal Period, the system must:
+    1. Lock and stop accepting transactions for the current/old school year.
+    2. Automatically transition to the next school year (e.g., from 2025-2026 to 2026-2027).
+    3. Set the new school year as the global default for all modules (Enrollment, Fees, etc.).
+
+### 5. TECHNICAL STANDARDS
+* **PDF Consistency:** Ensure the "Preview SOA" in the Accounts Receivables menu uses the previously standardized uniform header (Logo Left, Info Center) and grid-based layout.
+* **Currency:** Use PHP (₱) for all balances and totals.

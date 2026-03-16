@@ -1,0 +1,28 @@
+Role: Expert Full-stack Developer. Objective: Update the "Collection" menu under the Finance module using the following specifications. Maintain the Gunmetal/Slate (#2c3e50) theme and ensure all logic is production-ready.
+1. Page Interface & Filters:
+School Year Filter: Add a dropdown for School Year (2020-2021 to 2049-2050).
+Date Range Filter: * Add "Date From" and "Date To" textboxes.
+Initial Values: Set "Date From" to the 1st day of the current month and "Date To" to the last day of the current month.
+Universal Search: Implement one auto-complete search textbox that filters the table by "Name", "S.I. No.", "Collection Category", and "Description".
+2. Collection Entry System (Action Button):
+Add a "Collection Entry" button that opens a dialog/form with these fields:
+Date: Initial value as Today(), formatted as mm/dd/yyyy.
+Name: Auto-complete search referencing the "Name" column from the Enrollees menu.
+S.I. No. (Sales Invoice): Automatically increment based on the last transaction but keep the field editable.
+Collection Category: Dropdown with: School Fees, Other School Fees, Back Accounts, Other Miscellaneous Income, Other Income Generating Income, Subsidy Income, Scholarship Income.
+Description: Long text/textarea.
+Amount: Numeric input formatted as accounting (Php) with comma separators and two decimal places.
+Save Logic: Include an "Enter" button to save the transaction to the collections table.
+3. Collection Summary Table (Dynamic Display):
+Columns: Date, S.I. No., Name, Collection Category, Description, and Amount.
+Advanced UI Logic (Grouping): * Implement a Collapse (-) and Show (+) icon for daily transactions.
+When collapsed, the row should only show the Date and the Sum of the daily Amount.
+When expanded, show all individual transactions for 그 day.
+Grand Total: Add a prominent textbox at the bottom that displays the total sum of the "Amount" column based on the active filters.
+4. Professional PDF Reporting:
+Add a "Print Collection Summary" button.
+Header: Fetch School Name, Address, and SEC Reg. No./TIN from the School Profile database.
+The PDF should reflect the filtered data in the table in a clean, professional format.
+5. Technical Requirements:
+Database Schema: Create a collections table in shared/schema.ts with appropriate relations to the enrollees table.
+State Management: Ensure the table and Grand Total update instantly when filters or search terms change.

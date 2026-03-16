@@ -1,0 +1,58 @@
+Replit Core Prompt: Enrollees Module & Basic Education Enrollment System
+Context: Update the "Enrollees" menu under the "Academic Management" module. This module is exclusively for Pre-school to Senior High School enrollees. Other levels are labeled "Under Development."
+
+1. Page Interface & Consistency:
+
+Maintain the Gunmetal/Slate (#2c3e50) theme with white text and high-contrast buttons.
+
+Top Bar: Include a School Year Filter (2020-2021 to 2049-2050) and a "Print School Fees Info" button (PDF header: School Name, Address, SEC/TIN).
+
+Action Button: Add a prominent "Enrollees Registry" button to trigger the enrollment form.
+
+2. Basic Education Enrollment Form (Dialog Popup): When "Enrollees Registry" is clicked, show a professional popup modeled after the "Basic Education Enrollment Form" (Annex 2 style).
+
+I. Student Info: PSA Birth Cert No., LRN, Names (Last, First, Middle, Ext), Sex (Male/Female), Date of Birth (DatePicker mm/dd/yyyy).
+
+Auto-Calculation: Age = Today() - Date of Birth.
+
+Logic: Indigenous Peoples (IP) Yes/No; if "Yes," show "Please Specify" textbox.
+
+II. Address (Location Selector Tool): - Implement a cascading dropdown (Region > Province > City > Barangay) using the PSGC API (https://psgc.gitlab.io/api/).
+
+Add a manual numeric input for Zip Code.
+
+III. Parents/Guardian: Father's Name, Mother's Maiden Name, Guardian's Name, and Tel No.
+
+IV. Returning/Transfer Logic: If "Enrollment Status" is "Returning (Balik-Aral)", unlock: Last Grade Level, Last SY, School Name, School ID, and Address.
+
+V. SHS Track & Strand: Cascading logic (Track: Academic, TVL, Sports, Arts -> Strand: STEM/ABM/HUMSS/GAS for Academic, etc.).
+
+VI. Photo: Add a widget to Take a Photo (camera) or Attach Image, displayed at the upper right.
+
+3. Main Enrollees Table (Page View): Display the following columns for registered enrollees:
+
+Enrollees Name: (Last, First, Middle, Ext). Clicking the name re-opens the form for editing.
+
+Educational Level: (Look up from registry).
+
+Section: Dropdown sourced from "Educational Levels" menu based on the selected Level.
+
+ID No.: Manual input field.
+
+Teacher: (Placeholder: Look up from Advisory Mapping - Under Development).
+
+Account: Displays "Total Applicable SY Fees."
+
+Click Logic: Open a dialog showing Name, SY, Level, and Section.
+
+Fee Logic: Fetch School Fees (from School Fees menu). Add inputs for Back Accounts, Other Fees (Summable items), Discounts (Summable items), and Scholarship (Summable items).
+
+Calculation: Total Applicable SY Fees = (School Fees + Back Accounts + Other Fees) - (Discounts + Scholarship).
+
+4. Technical Requirements:
+
+Database: Create an enrollees table with a foreign key to school_fees and educational_levels.
+
+API Integration: Ensure the Vanilla JS/React logic for PSGC API is robust and handles NCR districts correctly.
+
+State Management: Ensure the "Account" column updates live when fees/discounts are edited in the dialog.

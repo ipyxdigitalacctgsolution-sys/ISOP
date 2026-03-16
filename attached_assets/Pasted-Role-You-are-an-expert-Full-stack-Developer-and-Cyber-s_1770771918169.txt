@@ -1,0 +1,59 @@
+Role: You are an expert Full-stack Developer and Cyber-security Specialist. Project Name: Integrated School Operations Portal (ISOP) - Subscription System Base.
+
+Objective: Build a production-ready, highly secure, and responsive (mobile & desktop) web application using React (frontend), Node.js (backend), and PostgreSQL (database). The app must follow a Subscription System architecture for schools.
+
+UI/UX Design Specifications:
+
+Color Palette: Professional Gunmetal/Slate background (#2c3e50 or #1a202c) consistent across all modules.
+
+Typography: Clean, white font for high readability.
+
+Buttons: Beautiful, modern, and high-contrast buttons that complement the dark background (e.g., emerald green or sleek blue accents).
+
+Responsiveness: Fully adaptive UI for both Desktop and Mobile devices.
+
+Core Feature: User Authentication & Security:
+
+Implement a robust Sign-up and Sign-in system using JWT (JSON Web Tokens) or NextAuth.
+
+Security: Ensure protection against SQL Injection and XSS. Use password hashing with Bcrypt.
+
+Registration Fields: School Name, Address, SEC Reg. No., TIN, Fiscal Period (MM/DD format), Contact No., Email, Website, Username, Password, and Logo Upload functionality.
+
+Dashboard Structure (Post-Login):
+
+Navigation:
+
+Collapsible Sidebar: To house the Academic and Finance modules.
+
+Dynamic Page Header: With hide/unhide functionality.
+
+Account Settings (Gear Icon): Located at the top-right; a dropdown containing:
+
+School Profile Update (linked to registration data).
+
+Change Account Credentials.
+
+Subscription Management.
+
+Modular Architecture (Placeholders/Under Development): Create the following navigation links and views, labeling them as "Under Development" where specified:
+
+Academic Management: Dashboard, Educational Level Registry, Teachers Registry, School Fees Registry, Enrollees Information, Advisory Mapping.
+
+Finance & Billing: Collection, Student Accounts, Summary of Receivables, Chart of Accounts, Disbursement, General Journal, Accounts Ledger, Trial Balance, Income Statement, Balance Sheet, Cash Flow Statement, Data Analysis.
+
+Requirements for the Web Landing Page:
+
+Create an "About the Project" section.
+
+Header with clear Sign In and Sign Up buttons.
+
+"How to Use" section (displaying "Under Development" placeholder).
+
+Technical Instructions:
+
+Set up the database schema to store School Profiles and User credentials.
+
+Configure a centralized state management (like React Context or Redux) for UI toggles (sidebar/header).
+
+Ensure fast response times by optimizing asset loading.
